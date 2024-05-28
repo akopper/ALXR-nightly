@@ -5,8 +5,6 @@ env:
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 22 * * *"
 
 jobs:
   prepare_release:
@@ -113,7 +111,7 @@ jobs:
           asset_name: alvr_server_windows.zip
           asset_content_type: application/zip
   
-   build_linux_server:
+  build_linux_server:
      runs-on: ubuntu-22.04
      needs: [prepare_release]
      steps:
@@ -164,10 +162,7 @@ jobs:
   publish_release:
     runs-on: ubuntu-22.04
     needs:
-      [
-        prepare_release,
-        build_linux_server
-      ]
+      [ prepare_release, build_linux_server ]
     steps:
       - uses: eregon/publish-release@v1
         env:
