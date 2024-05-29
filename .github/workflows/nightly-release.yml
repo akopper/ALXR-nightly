@@ -61,7 +61,7 @@ jobs:
          uses: actions/checkout@v3
          with:
            repository: "korejan/ALVR"
-           ref: 81694e08e198b1679c336985883656bd09092512
+           ref: eaafd961dfb7e913aa6dc588c10bf5989ac2cc8b
        - uses: actions-rs/toolchain@v1
          with:
            toolchain: stable
